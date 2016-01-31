@@ -28,7 +28,7 @@
 	</nav>
 
 	<div class="container">
-		<form name="project_form" id="project_form">
+		<form name="project_form" id="project_form" action="" method="POST">
 			<div class="row col-lg-12">
 				<div class="form-group col-lg-6">
 					<h2 class="text-left">Project Metadata</h2>
@@ -47,8 +47,8 @@
 			</div>
 		</div>
 		<div class="form-group row text-center col-lg-12">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-secondary">Sign in</button>
+			<div class="col-lg-12">
+				<button type="submit" name="submit" value="submit" id="submit" class="btn btn-secondary">Submit</button>
 			</div>
 		</div>
 	</form>	
