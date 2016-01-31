@@ -35,14 +35,14 @@
 					<p class="text-left">Artifact Coordinates</p>
 					<br>
 					<label for="project_group">Project Group</label>
-					<input type="text" class="form-control" id="project_group" placeholder="Project Group">
+					<input type="text" name="project_group" class="form-control" id="project_group" placeholder="Project Group">
 				</div>
 				<div class="form-group col-lg-6">
 					<h2 class="text-left">Project Metadata</h2>
 					<p class="text-left">Artifact Coordinates</p>
 					<br>
-					<label for="project_dependancies">Add Dependancies</label>
-					<input type="text" class="form-control" id="project_dependancies" placeholder="Enter dependancies sepeareted by commas">
+					<label for="project_dependancies">Add Dependencies</label>
+					<input type="text" class="form-control" name="project_dependencies" id="project_dependancies" placeholder="Enter dependancies sepeareted by commas">
 				</div>
 			</div>
 		</div>
@@ -56,7 +56,25 @@
 
 
 <?php require 'imports.php' ?>
-
+	<script>
+		function formSubmit(e){
+			e.preventDefault();
+			
+			var postdata = new FormData($('#project_form')[0]);						
+			var fields = $("#project_form").serializeArray();			
+			var fieldName = '';
+			var data = {};
+			
+			for(fieldName in fields){
+				console.log(fields);
+				data[fields[fieldName]['name']] = fields[fieldName]['value']
+			}
+			
+			alert(JSON.stringify(data));
+		}
+		
+		$( "#project_form" ).submit(formSubmit);
+	</script>
 </body>
 <footer>
 	<?php require 'footer.php' ?>
